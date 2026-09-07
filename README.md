@@ -1,5 +1,19 @@
 # HW 0: Intro to Javascript and WebGL
 
+An animated, procedurally-shaded cube rendered with custom GLSL shaders. All noise and animation runs on the GPU.
+
+**Live demo:** https://sqqqqqqs.github.io/hw00-intro-base/
+
+![result](result.png)
+
+## Features
+
+- **Cube** — A `Cube` class extending `Drawable`, with 24 vertices (one normal per face) for hard-edged Lambert shading.
+- **Color control** — A `dat.GUI` color picker drives the `u_Color` uniform, setting one of the two colors the surface noise blends between.
+- **3D FBM fragment shader** — Value noise on a 3D lattice with quintic-fade interpolation, summed over 6 octaves. Sampled in local space (solid texturing) and mapped between two colors for a marble/cloud look.
+- **Animated vertex shader** — `sin`-based displacement along normals, driven by a per-frame `u_Time` uniform. Displacement depends on each vertex's position, so the deformation is non-uniform.
+
+
 <p align="center">
   <img width="360" height="360" src="https://user-images.githubusercontent.com/1758825/132532354-e3a45402-e484-499e-bfa7-2d73b9f2c946.png">
 </p>
